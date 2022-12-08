@@ -13,6 +13,10 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::post("login", [UserController::class, "login"]);
         Route::post("emailVerf", [OTPController::class, "sendOTP"]);
         Route::post("updatePassword", [UserController::class, "updatePassword"]);
+
+        Route::group(["prefix"=>"worker"],function(){
+            Route::get("{name}", [UserWorkerController::class, "getWorkerByName"]);
+        });
     });
     
     Route::get("top5", [RatingController::class, "getTop5"]);
