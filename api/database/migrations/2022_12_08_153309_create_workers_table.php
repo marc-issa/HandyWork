@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer("hourly_rate");
             $table->string("categorie");
             $table->integer("rating");
+            $table->unsignedBigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users");
             $table->timestamps();
         });
