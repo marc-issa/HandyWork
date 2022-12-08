@@ -34,6 +34,7 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::post("updateStatus", [JobController::class, "updateStatus"]);
         Route::post("delete", [JobController::class, "deleteAppointment"]);
         Route::get("get/{user_id}", [JobController::class, "getAllForUser"]);
+        Route::get("get/{job_id}", [JobController::class, "getJobInfo"]);
     });
     
     Route::get("top5", [RatingController::class, "getTop5"]);
