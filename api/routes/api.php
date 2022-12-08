@@ -13,8 +13,15 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::post("signup", [UserController::class, "signup"]);
         Route::post("login", [UserController::class, "login"]);
         Route::post("loginEmail", [UserController::class, "loginEmail"]);
-        Route::post("emailVerf", [OTPController::class, "sendOTP"]);
-        Route::post("updatePassword", [UserController::class, "updatePassword"]);
+        Route::post("forgot", [UserController::class, "forgotPassword"]);
+        Route::group(["prefix"=>"edit"], function(){
+            Route::post("username", [UserController::class, "editUsername"]);
+            Route::post("fname", [UserController::class, "editFname"]);
+            Route::post("lname", [UserController::class, "editLname"]);
+            Route::post("email", [UserController::class, "editEmail"]);
+            Route::post("address", [UserController::class, "editAddress"]);
+            Route::post("password", [UserController::class, "editPassword"]);
+        });
 
         Route::group(["prefix"=>"worker"],function(){
             Route::get("{name}", [UserWorkerController::class, "getWorkerByName"]);
