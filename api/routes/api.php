@@ -1,12 +1,11 @@
 <?php
-
-use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users\UserController;
 use App\Http\Controllers\OTPController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\User\WorkerController as UserWorkerController;
 
 Route::group(["prefix"=>"v0.1"], function(){
@@ -29,11 +28,12 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::get("get/{user_id}", [NotificationController::class, "getNotificationByUserId"]);
     });
 
-    Route::group(["prefix"=>"appointments"], function(){
-        Route::post("add", [AppointmentController::class, "addAppointment"]);
-        Route::post("update", [AppointmentController::class], "updateDateAndTime");
-        Route::post("updateStatus", [AppointmentController::class, "updateStatus"]);
-        Route::get("get/{user_id}", [AppointmentController::class, "getAllForUser"]);
+    Route::group(["prefix"=>"job"], function(){
+        Route::post("add", [JobController::class, "addAppointment"]);
+        Route::post("update", [JobController::class], "updateDateAndTime");
+        Route::post("updateStatus", [JobController::class, "updateStatus"]);
+        Route::post("delete", [JobController::class, "deleteAppointment"]);
+        Route::get("get/{user_id}", [JobController::class, "getAllForUser"]);
     });
     
     Route::get("top5", [RatingController::class, "getTop5"]);
