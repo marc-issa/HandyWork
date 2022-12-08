@@ -12,6 +12,7 @@ Route::group(["prefix"=>"v0.1"], function(){
     Route::group(["prefix"=>"user"], function(){
         Route::post("signup", [UserController::class, "signup"]);
         Route::post("login", [UserController::class, "login"]);
+        Route::post("loginEmail", [UserController::class, "loginEmail"]);
         Route::post("emailVerf", [OTPController::class, "sendOTP"]);
         Route::post("updatePassword", [UserController::class, "updatePassword"]);
 
