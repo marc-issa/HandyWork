@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users\UserController;
 use App\Http\Controllers\OTPController;
+use App\Http\Controllers\User\WorkerController as UserWorkerController;
 
 Route::group(["prefix"=>"v0.1"], function(){
     Route::group(["prefix"=>"user"], function(){
@@ -12,6 +13,6 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::post("emailVerf", [OTPController::class, "sendOTP"]);
         Route::post("updatePassword", [UserController::class, "updatePassword"]);
         
-        Route::group("top")
+        
     });
 });
