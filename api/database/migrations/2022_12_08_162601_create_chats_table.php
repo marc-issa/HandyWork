@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("message");
             $table->dateTime("read_at");
-            $table->foreign("worker_id")->references("id")->("workers");
-            $table->foreign("user_id")->references("id")->("users");
+            $table->foreign("worker_id")->references("id")->on("workers");
+            $table->foreign("user_id")->references("id")->on("users");
             $table->timestamp("sent_at");
         });
     }
