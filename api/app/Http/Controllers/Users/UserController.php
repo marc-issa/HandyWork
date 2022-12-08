@@ -78,4 +78,74 @@ class UserController extends Controller
             ]);
         }
     }
+
+    function forgotPassword(Request $request){
+        $user = User::where("email", $request->email);
+        $user->update(["password"=>bcrypt($request->password)]);
+        return response()->json([
+            "resp"=> true
+        ]);
+    }
+
+    function editUsername(Request $request){
+        $username_auth = User::where("username", $request->username)->first();
+        if($username_auth!=null){
+            return response()->json([
+                "resp"=>"username-exists"
+            ]);
+        }else{
+            $user = User::where("id", $request->id);
+            $user->update(["username"=>$request->username]);
+            return response()->json([
+                "resp"=> true
+            ]);
+        }
+    }
+
+    function editFname(Request $request){
+        $user = User::where("id", $request->id);
+        $user->update(["first_name"=>$request->fname]);
+        return response()->json([
+            "resp"=> true
+        ]);
+    }
+
+    function editLname(Request $request){
+        $user = User::where("id", $request->id);
+        $user->update(["last_name"=>$request->lname]);
+        return response()->json([
+            "resp"=> true
+        ]);
+    }
+
+    function editEmail(Request $request){
+        $email_auth = User::where("email", $request->email)->first();
+        if($email_auth!=null){
+            return response()->json([
+                "resp"=>"email-exists"
+            ]);
+        }else{
+            $user = User::where("id", $request->id);
+            $user->update(["email"=>$request->email]);
+            return response()->json([
+                "resp"=> true
+            ]);
+        }
+    }
+
+    function editAddress(Request $request){
+        $user = User::where("id", $request->id);
+        $user->update(["address"=>$request->address]);
+        return response()->json([
+            "resp"=> true
+        ]);
+    }
+
+    function editPassword(Request $request){
+        $user = User::where("id", $request->id);
+        $user->update(["password"=>bcrypt($request->password)]);
+        return response()->json([
+            "resp"=> true
+        ]);
+    }
 }
