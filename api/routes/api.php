@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,14 @@ Route::group(["prefix"=>"v0.1"], function(){
     Route::group(["preifx"=>"notification"], function(){
         Route::post("add", [NotificationController::class, "addNotification"]);
         Route::post("delete", [NotificationController::class, "deleteNotification"]);
-        Route::get("get/{id}", [NotificationController::class, "getNotificationByUserId"]);
+        Route::get("get/{user_id}", [NotificationController::class, "getNotificationByUserId"]);
+    });
+
+    Route::group(["prefix"=>"appointments"], function(){
+        Route::post("add", [AppointmentController::class, "addAppointment"]);
+        Route::post("update", [AppointmentController::class], "updateDateAndTime");
+        Route::post("updateStatus", [AppointmentController::class, "updateStatus"]);
+        Route::get("get/{user_id}", [AppointmentController::class, "getAllForUser"]);
     });
     
     Route::get("top5", [RatingController::class, "getTop5"]);
