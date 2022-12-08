@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users\UserController;
@@ -16,7 +17,15 @@ Route::group(["prefix"=>"v0.1"], function(){
 
         Route::group(["prefix"=>"worker"],function(){
             Route::get("{name}", [UserWorkerController::class, "getWorkerByName"]);
+            Route::get("{categorie}", [UserWorkerController::class, "getWorkersByCategorie"]);
+            Route::get("{location}", [UserWorkerController::class, "getWorkerByLocation"]);
         });
+    });
+
+    Route::group(["preifx"=>"notification"], function(){
+        Route::post("add", [NotificationController::class, "addNotification"]);
+        Route::post("delete", [NotificationController::class, "deleteNotification"]);
+        Route::get("get/{id}", [NotificationController::class, "getNotificationByUserId"]);
     });
     
     Route::get("top5", [RatingController::class, "getTop5"]);
