@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("status");
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("worker_id");
-            $table->foreign("worker_id")->references("id")->on("workers");
+            $table->foreign("worker_id")->references("user_id")->on("workers");
             $table->foreign("user_id")->references("id")->on("users");
             $table->timestamps();
         });

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger("worker_id");
             $table->integer("rating_sum");
             $table->integer("num_of_rating");
+            $table->foreign("worker_id")->references("user_id")->on("workers");
             $table->timestamps();
         });
     }
