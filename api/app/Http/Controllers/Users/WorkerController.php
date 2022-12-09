@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categorie;
 use App\Models\Worker;
 use Illuminate\Http\Request;
 
@@ -24,9 +25,10 @@ class WorkerController extends Controller
         }
     }
 
-    function removeWorker(Request $request){
+    function deleteWorker(Request $request){
         $worker = Worker::where("user_id", $request->user_id);
-        if($worker->delete()){
+        $catg = Categorie::where("worker_id", $request->worker_id);
+        if($worker->delete() && $catg->delete){
             return response()->json([
                 "resp" => true
             ]);
