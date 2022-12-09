@@ -30,6 +30,7 @@ Route::group(["prefix"=>"v0.1"], function(){
     Route::group(["prefix"=>"worker"],function(){
         Route::post("add", [UserWorkerController::class, "addWorker"]);
         Route::post("delete", [UserWorkerController::class, "deleteWorker"]);
+        Route::post("get", [UserWorkerController::class, "getCategories"]);
 
         Route::group(["prefix"=>"edit"], function(){
             Route::post("hr", [UserWorkerController::class, "editHr"]);
