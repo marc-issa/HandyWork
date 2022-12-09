@@ -27,4 +27,17 @@ class JobController extends Controller
             ]);
         }
     }
+
+    function updateDateAndTime(Request $request){
+        $job = Job::where("id", $request->job_id);
+        if($job->update(["date_and_time"=> $request->dnt])){
+            return response()->json([
+                "resp"=>true
+            ]);
+        }else{
+            return response()->json([
+                "resp"=>false
+            ]);
+        }
+    }
 }
