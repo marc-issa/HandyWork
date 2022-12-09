@@ -65,7 +65,20 @@ class JobController extends Controller
             ]);
         }else{
             return response()->json([
-                "resp"=>false
+                "resp"=>"no-jobs-available"
+            ]);
+        }
+    }
+
+    function getJobInfo(Request $request, $job_id){
+        $job = Job::find($job_id)->first();
+        if($job!=null){
+            return response()->json([
+                "resp"=>$job
+            ]);
+        }else{
+            return response()->json([
+                "resp"=>"job-unavailable"
             ]);
         }
     }
