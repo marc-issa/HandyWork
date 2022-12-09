@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Worker;
+use App\Models\Categorie;
 
 class UserController extends Controller
 {
@@ -189,5 +191,20 @@ class UserController extends Controller
             ]);
         }
        
+    }
+
+    function deleteUser(Request $request){
+        $user = User::where("id", $request->id);
+        $worker = Worker::where("user_id", $request->id);
+        $catg = Categorie::where("worker_id", $request->id);
+        if($user->delete() && $worker->delete() && $catg->delete()){
+            return response()->json([
+                "resp"=>true
+            ]);
+        }else{
+            return response()->json([
+                "resp"=>false
+            ]);
+        }
     }
 }
