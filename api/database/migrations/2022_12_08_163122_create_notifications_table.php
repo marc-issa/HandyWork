@@ -17,12 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("user_id");
             $table->string("content");
-            $table->unsignedBigInteger("job_id");
-            $table->unsignedBigInteger("chat_id");
+            $table->string("type");
             $table->timestamps();
             $table->foreign("user_id")->references("id")->on("users");
-            $table->foreign("job_id")->references("id")->on("jobs");
-            $table->foreign("chat_id")->references("id")->on("chats");
         });
     }
 
