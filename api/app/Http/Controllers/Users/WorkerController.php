@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Categorie;
 use App\Models\Worker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WorkerController extends Controller
 {
@@ -51,5 +52,16 @@ class WorkerController extends Controller
             ]);
         }
         
+    }
+
+    function getWorkerByUsername(Request $request){
+        $worker = DB::table("users")
+                    ->join("workers", "user_id", "=", "users.id")
+                    ->select("users.*", "workers.hourly_rate")
+                    ->where("users.username", "Like","%{$request->username}%")
+                    ->get();
+        return response()->json([
+            "resp"=>$worker
+        ]);
     }
 }

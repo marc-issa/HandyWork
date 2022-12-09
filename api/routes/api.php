@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\CategorieController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
@@ -33,8 +35,13 @@ Route::group(["prefix"=>"v0.1"], function(){
             Route::post("hr", [UserWorkerController::class, "editHr"]);
         });
 
+        Route::group(["prefix"=>"categorie"], function(){
+            Route::post("add", [CategorieController::class, "addCategorie"]);
+            Route::post("delete", [CategorieController::class, "deleteCategorie"]);
+        });
+
         Route::group(["prefix"=>"find"], function(){
-            Route::get("{name}", [UserWorkerController::class, "getWorkerByName"]);
+            Route::get("{username}", [UserWorkerController::class, "getWorkerByUsername"]);
             Route::get("{categorie}", [UserWorkerController::class, "getWorkersByCategorie"]);
             Route::get("{location}", [UserWorkerController::class, "getWorkerByLocation"]);
         });
