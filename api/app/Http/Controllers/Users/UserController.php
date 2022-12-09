@@ -195,9 +195,7 @@ class UserController extends Controller
 
     function deleteUser(Request $request){
         $user = User::where("id", $request->id);
-        $worker = Worker::where("user_id", $request->id);
-        $catg = Categorie::where("worker_id", $request->id);
-        if($user->delete() && $worker->delete() && $catg->delete()){
+        if($user->delete()){
             return response()->json([
                 "resp"=>true
             ]);
