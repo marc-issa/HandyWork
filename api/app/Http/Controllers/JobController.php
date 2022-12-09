@@ -41,4 +41,18 @@ class JobController extends Controller
             ]);
         }
     }
+
+    function updateStatus(Request $request){
+        $job = Job::where("id", $request->job_id);
+        if($job->update(["status"=> $request->status])){
+            $job->touch();
+            return response()->json([
+                "resp"=>true
+            ]);
+        }else{
+            return response()->json([
+                "resp"=>false
+            ]);
+        }
+    }
 }
