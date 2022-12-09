@@ -54,11 +54,22 @@ class WorkerController extends Controller
         
     }
 
-    function getWorkerByUsername(Request $request){
+    function getWorkerByUsername($username){
         $worker = DB::table("users")
                     ->join("workers", "user_id", "=", "users.id")
                     ->select("users.*", "workers.hourly_rate")
-                    ->where("users.username", "Like","%{$request->username}%")
+                    ->where("users.username", "Like","%{$username}%")
+                    ->get();
+        return response()->json([
+            "resp"=>$worker
+        ]);
+    }
+    
+    function getWorkerByLocation($address){
+        $worker = DB::table("users")
+                    ->join("workers", "user_id", "=", "users.id")
+                    ->select("users.*", "workers.hourly_rate")
+                    ->where("users.address", "Like","%{$address}%")
                     ->get();
         return response()->json([
             "resp"=>$worker

@@ -43,9 +43,8 @@ Route::group(["prefix"=>"v0.1"], function(){
         });
 
         Route::group(["prefix"=>"find"], function(){
-            Route::get("{username}", [UserWorkerController::class, "getWorkerByUsername"]);
-            Route::get("{categorie}", [UserWorkerController::class, "getWorkersByCategorie"]);
-            Route::get("{location}", [UserWorkerController::class, "getWorkerByLocation"]);
+            Route::get("username/{username}", [UserWorkerController::class, "getWorkerByUsername"]);
+            Route::get("address/{address}", [UserWorkerController::class, "getWorkerByLocation"]);
         });
     });
 
