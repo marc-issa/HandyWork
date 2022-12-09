@@ -39,6 +39,7 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::group(["prefix"=>"categorie"], function(){
             Route::post("add", [CategorieController::class, "addCategorie"]);
             Route::post("delete", [CategorieController::class, "deleteCategorie"]);
+            Route::post("get", [CategorieController::class, "getCategories"]);
         });
 
         Route::group(["prefix"=>"find"], function(){
