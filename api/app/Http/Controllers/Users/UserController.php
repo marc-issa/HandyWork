@@ -81,10 +81,16 @@ class UserController extends Controller
 
     function forgotPassword(Request $request){
         $user = User::where("email", $request->email);
-        $user->update(["password"=>bcrypt($request->password)]);
-        return response()->json([
-            "resp"=> true
-        ]);
+        if($user->update(["password"=>bcrypt($request->password)])){
+            return response()->json([
+                "resp"=> true
+            ]);
+        }else{
+            return response()->json([
+                "resp"=> false
+            ]);
+        }
+       
     }
 
     function editUsername(Request $request){
@@ -95,27 +101,45 @@ class UserController extends Controller
             ]);
         }else{
             $user = User::where("id", $request->id);
-            $user->update(["username"=>$request->username]);
-            return response()->json([
-                "resp"=> true
-            ]);
+            if($user->update(["username"=>$request->username])){
+                return response()->json([
+                    "resp"=> true
+                ]);
+            }else{
+                return response()->json([
+                    "resp"=> false
+                ]);
+            }
+            
         }
     }
 
     function editFname(Request $request){
         $user = User::where("id", $request->id);
-        $user->update(["first_name"=>$request->fname]);
-        return response()->json([
-            "resp"=> true
-        ]);
+        if($user->update(["first_name"=>$request->fname])){
+            return response()->json([
+                "resp"=> true
+            ]);
+        }else{
+            return response()->json([
+                "resp"=> false
+            ]);
+        }
+        
     }
 
     function editLname(Request $request){
         $user = User::where("id", $request->id);
-        $user->update(["last_name"=>$request->lname]);
-        return response()->json([
-            "resp"=> true
-        ]);
+        if($user->update(["last_name"=>$request->lname])){
+            return response()->json([
+                "resp"=> true
+            ]);
+        }else{
+            return response()->json([
+                "resp"=> false
+            ]);
+        }
+        
     }
 
     function editEmail(Request $request){
@@ -126,26 +150,44 @@ class UserController extends Controller
             ]);
         }else{
             $user = User::where("id", $request->id);
-            $user->update(["email"=>$request->email]);
-            return response()->json([
-                "resp"=> true
-            ]);
+            if($user->update(["email"=>$request->email])){
+                return response()->json([
+                    "resp"=> true
+                ]);
+            }else{
+                return response()->json([
+                    "resp"=> false
+                ]);
+            }
+            
         }
     }
 
     function editAddress(Request $request){
         $user = User::where("id", $request->id);
-        $user->update(["address"=>$request->address]);
-        return response()->json([
-            "resp"=> true
-        ]);
+        if($user->update(["address"=>$request->address])){
+            return response()->json([
+                "resp"=> true
+            ]);
+        }else{
+            return response()->json([
+                "resp"=> false
+            ]);
+        }
+       
     }
 
     function editPassword(Request $request){
         $user = User::where("id", $request->id);
-        $user->update(["password"=>bcrypt($request->password)]);
-        return response()->json([
-            "resp"=> true
-        ]);
+        if($user->update(["password"=>bcrypt($request->password)])){
+            return response()->json([
+                "resp"=> true
+            ]);
+        }else{
+            return response()->json([
+                "resp"=> false
+            ]);
+        }
+       
     }
 }
