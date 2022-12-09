@@ -26,6 +26,7 @@ Route::group(["prefix"=>"v0.1"], function(){
 
     Route::group(["prefix"=>"worker"],function(){
         Route::post("add", [UserWorkerController::class, "addWorker"]);
+        Route::post("delete", [UserWorkerController::class, "removeWorker"]);
 
         Route::group(["prefix"=>"find"], function(){
             Route::get("{name}", [UserWorkerController::class, "getWorkerByName"]);

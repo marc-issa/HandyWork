@@ -23,4 +23,18 @@ class WorkerController extends Controller
             ]);
         }
     }
+
+    function removeWorker(Request $request){
+        $worker = Worker::where("user_id", $request->user_id);
+        if($worker->delete()){
+            return response()->json([
+                "resp" => true
+            ]);
+        }else{
+            return response()->json([
+                "resp" => false
+            ]);
+        }
+        
+    }
 }
