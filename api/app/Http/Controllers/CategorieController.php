@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategorieController extends Controller
 {
@@ -34,5 +35,12 @@ class CategorieController extends Controller
                 "resp"=>false
             ]);
         }
+    }
+
+    function getCategories(Request $request){
+        $catgs = Categorie::where("worker_id", $request->worker_id)->get();
+        return response()->json([
+            "resp"=>$catgs
+        ]);
     }
 }
