@@ -55,4 +55,18 @@ class JobController extends Controller
             ]);
         }
     }
+
+    function getAllForUser(Request $request, $user_id){
+        $jobs = Job::where("user_id", $user_id)->whereOr("worker_id", "user_id")->get();
+        $jobs_auth = Job::where("user_id", $user_id)->whereOr("worker_id", "user_id")->first();
+        if($jobs_auth!=null){
+            return response()->json([
+                "resp"=>$jobs
+            ]);
+        }else{
+            return response()->json([
+                "resp"=>false
+            ]);
+        }
+    }
 }
