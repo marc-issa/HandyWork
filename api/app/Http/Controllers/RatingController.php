@@ -58,4 +58,11 @@ class RatingController extends Controller
             ]);
         }
     }
+
+    function getTop(){
+        $top = Rating::all()->sortBy("rating_sum", null, true);
+        return response()->json([
+            "resp"=>$top
+        ]);
+    }
 }

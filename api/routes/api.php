@@ -66,9 +66,10 @@ Route::group(["prefix"=>"v0.1"], function(){
     });
     
     Route::group(["prefix"=>"rate"], function(){
-        Route::post("add", [RatingController::class, "addRating"]);
+        Route::post("add", [RatingController::class, "addRating"]); 
+        Route::get("top", [RatingController::class, "getTop"]);
         Route::get("{worker_id}", [RatingController::class, "getRating"]);
-        Route::get("top5", [RatingController::class, "getTop5"]);
+        
         
     });
     
