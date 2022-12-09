@@ -45,4 +45,17 @@ class RatingController extends Controller
             }
         }
     }
+
+    function getRating($worker_id){
+        $rating = Rating::where("worker_id", $worker_id)->first();
+        if($rating!=null){
+            return response()->json([
+                "resp"=>$rating
+            ]);
+        }else{
+            return response()->json([
+                "resp"=>"no-rating"
+            ]);
+        }
+    }
 }
