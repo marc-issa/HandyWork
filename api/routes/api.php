@@ -3,10 +3,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users\UserController;
-use App\Http\Controllers\OTPController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\JobController;
-use App\Http\Controllers\User\WorkerController as UserWorkerController;
+use App\Http\Controllers\Users\WorkerController as UserWorkerController;
 
 Route::group(["prefix"=>"v0.1"], function(){
     Route::group(["prefix"=>"user"], function(){
@@ -14,6 +13,7 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::post("login", [UserController::class, "login"]);
         Route::post("loginEmail", [UserController::class, "loginEmail"]);
         Route::post("forgot", [UserController::class, "forgotPassword"]);
+
         Route::group(["prefix"=>"edit"], function(){
             Route::post("username", [UserController::class, "editUsername"]);
             Route::post("fname", [UserController::class, "editFname"]);
@@ -22,8 +22,12 @@ Route::group(["prefix"=>"v0.1"], function(){
             Route::post("address", [UserController::class, "editAddress"]);
             Route::post("password", [UserController::class, "editPassword"]);
         });
+    });
 
-        Route::group(["prefix"=>"worker"],function(){
+    Route::group(["prefix"=>"worker"],function(){
+        Route::post("add", [UserWorkerController::class, "addWorker"]);
+
+        Route::group(["prefix"=>"find"], function(){
             Route::get("{name}", [UserWorkerController::class, "getWorkerByName"]);
             Route::get("{categorie}", [UserWorkerController::class, "getWorkersByCategorie"]);
             Route::get("{location}", [UserWorkerController::class, "getWorkerByLocation"]);
