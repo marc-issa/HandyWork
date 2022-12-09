@@ -55,7 +55,7 @@ Route::group(["prefix"=>"v0.1"], function(){
     });
 
     Route::group(["prefix"=>"job"], function(){
-        Route::post("add", [JobController::class, "addAppointment"]);
+        Route::post("add", [JobController::class, "addJob"]);
         Route::post("update", [JobController::class], "updateDateAndTime");
         Route::post("updateStatus", [JobController::class, "updateStatus"]);
         Route::post("delete", [JobController::class, "deleteAppointment"]);
@@ -63,6 +63,9 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::get("get/{job_id}", [JobController::class, "getJobInfo"]);
     });
     
-    Route::get("top5", [RatingController::class, "getTop5"]);
+    Route::group(["prefix"=>"rate"], function(){
+        Route::get("top5", [RatingController::class, "getTop5"]);
+    });
+    
     
 });
