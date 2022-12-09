@@ -23,4 +23,15 @@ class NotificationController extends Controller
             ]);
         }
     }
+
+    function deleteNotification(Request $request){
+        $notification = Notification::find($request->noti_id);
+        if($notification->delete()){
+            return response()->json([
+                "resp"=>true
+            ]);
+        }else{
+            return false;
+        }
+    }
 }
