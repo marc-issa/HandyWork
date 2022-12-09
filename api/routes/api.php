@@ -48,7 +48,7 @@ Route::group(["prefix"=>"v0.1"], function(){
         });
     });
 
-    Route::group(["preifx"=>"notification"], function(){
+    Route::group(["prefix"=>"notification"], function(){
         Route::post("add", [NotificationController::class, "addNotification"]);
         Route::post("delete", [NotificationController::class, "deleteNotification"]);
         Route::get("get/{user_id}", [NotificationController::class, "getNotificationByUserId"]);
