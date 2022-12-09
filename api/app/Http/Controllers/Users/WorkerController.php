@@ -25,6 +25,19 @@ class WorkerController extends Controller
         }
     }
 
+    function editHr(Request $request){
+        $worker = Worker::where("user_id", $request->user_id);
+        if($worker->update(["hourly_rate"=> $request->hr])){
+            return response()->json([
+                "resp" => true
+            ]);
+        }else{
+            return response()->json([
+                "resp" => false
+            ]);
+        }
+    }
+
     function deleteWorker(Request $request){
         $worker = Worker::where("user_id", $request->user_id);
         $catg = Categorie::where("worker_id", $request->worker_id);
