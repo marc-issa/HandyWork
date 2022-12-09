@@ -41,8 +41,8 @@ class WorkerController extends Controller
 
     function deleteWorker(Request $request){
         $worker = Worker::where("user_id", $request->user_id);
-        $catg = Categorie::where("worker_id", $request->worker_id);
-        if($worker->delete() && $catg->delete){
+        $catg = Categorie::where("worker_id", $request->user_id);
+        if($catg->delete() && $worker->delete()){
             return response()->json([
                 "resp" => true
             ]);
