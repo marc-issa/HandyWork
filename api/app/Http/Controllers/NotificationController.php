@@ -34,4 +34,19 @@ class NotificationController extends Controller
             return false;
         }
     }
+
+    function getNotificationByUserId($user_id){
+        $notification_empty = Notification::where("user_id", $user_id)->first();
+        $notification = Notification::where("user_id", $user_id)->get();
+        
+        if($notification_empty!=null){
+            return response()->json([
+                "resp"=>$notification
+            ]);
+        }else{
+            return response()->json([
+                "resp"=>"empty"
+            ]);
+        }
+    }
 }
