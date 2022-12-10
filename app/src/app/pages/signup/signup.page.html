@@ -1,9 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="container">
+  <div class="header">
+    <h1 class="signin-header">SIGN UP</h1>
+  </div>
+  <div class="input-fields">
+    <h6 class="resp-err">{{resp_err}}</h6>
+    <input type="text" placeholder="username" class="input-item" [(ngModel)]="username">
+    <input type="password" placeholder="first name" class="input-item mgt-input" [(ngModel)]="fname">
+    <input type="password" placeholder="last name" class="input-item mgt-input" [(ngModel)]="lname">
+    <input type="password" placeholder="email" class="input-item mgt-input" [(ngModel)]="email">
+    <input type="password" placeholder="address" class="input-item mgt-input" [(ngModel)]="address">
+    <input type="password" placeholder="password" class="input-item mgt-input" [(ngModel)]="password">
+    <button type="button" class="signup-bt mgt" id="signin-bt" (click)="signup()">SIGN UP</button>
+  </div>
 
-<ion-content>
-
-</ion-content>
+  <div class="signin-sec">
+    <button type="button" class="signin-bt" (click)="signinRedirect()">Have an account? SIGN
+      IN</button>
+  </div>
+</div>
