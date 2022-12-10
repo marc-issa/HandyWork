@@ -42,7 +42,7 @@ export class SignupPage implements OnInit {
           } else if (resp == "email-exists") {
             this.resp_err = "Email already exists"
           } else {
-            console.log("redirecting")
+            this.router.navigate(["/home"], { state: { id: resp } })
           }
 
         }, error => {

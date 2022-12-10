@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
           } else if (resp == "wrong-password") {
             this.resp_err = "Wrong password"
           } else {
-            console.log("Logging in")
+            this.router.navigate(["/home"], { state: { id: resp } })
           }
         }, error => {
           console.log(error);
@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
           } else if (resp == "wrong-password") {
             this.resp_err = "Wrong password"
           } else {
-            console.log("Logging in")
+            this.router.navigate(["/home"], { state: { id: resp } })
           }
         }, error => {
           console.log(error);
