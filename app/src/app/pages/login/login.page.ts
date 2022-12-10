@@ -19,7 +19,6 @@ export class LoginPage implements OnInit {
   }
 
   signin() {
-
     let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (this.username_email.match(regex)) {
       let postData = {
@@ -62,6 +61,10 @@ export class LoginPage implements OnInit {
         });
     }
 
+  }
+
+  signupRedirect() {
+    this.router.navigate(["/signup"]);
   }
 
 }

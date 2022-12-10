@@ -60,3 +60,24 @@
     color: red;
     align-self: center;
 }
+
+.signup-sec {
+    margin-top: 170px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.signup-bt {
+    font-style: bold;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #21473D;
+    padding: 2px 20px;
+    border-radius: 20px;
+    width: 98%;
+    align-self: center;
+}
