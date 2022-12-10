@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-intro2',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Intro2Page implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
+
+  }
+
+  navIntro3() {
+    console.log("redirecting")
+    this.route.navigate(["/intro3"])
+  }
+
+  navBack() {
+    this.route.navigate(["/intro1"])
   }
 
 }
