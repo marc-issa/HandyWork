@@ -19,7 +19,6 @@ export class Intro3Page implements OnInit {
 
   redLogin() {
     this.route.navigate(["/login"])
-
   }
 
 }

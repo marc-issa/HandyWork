@@ -1,9 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<div class="container">
+  <div class="header">
+    <h1 class="signup-header">SIGN IN</h1>
+  </div>
+  <div class="input-fields">
+    <h6 class="resp-err">{{resp_err}}</h6>
+    <input type="text" placeholder="username or email" class="input-item" [(ngModel)]="username_email">
+    <input type="password" placeholder="password" class="input-item mgt-input" [(ngModel)]="password">
+    <button type="button" class="signin-bt mgt" id="signin-bt" (click)="signin()">SIGN IN</button>
+  </div>
+</div>
