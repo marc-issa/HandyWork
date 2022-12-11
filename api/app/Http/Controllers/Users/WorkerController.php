@@ -54,9 +54,11 @@ class WorkerController extends Controller
         
     }
 
-    function getAll(){
+    function getAll($categorie){
         $worker = DB::table("users")
                     ->join("workers", "user_id", "=", "users.id")
+                    ->join("categories", "worker_id", "=", "users.id")
+                    ->where("categorie", $categorie)
                     ->select("users.*", "workers.hourly_rate")
                     ->get();
         return response()->json([
