@@ -1,9 +1,86 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>{{id}}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu contentId="main-content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+        <div class="menu-container">
+            <a (click)="profileRedirect()">
+                <div class="item-display">
+                    <div class="item-icon">
+                        <img src="../../../assets/icon/profile.png">
+                    </div>
+                    <div class="item-info">
+                        <h5 class="no-mg">John John</h5>
+                        <h6 class="no-mg">john@gmail.com</h6>
+                    </div>
+                </div>
+            </a>
+            <div class="current mg">
+                <div class="item-icon-nav">
+                    <ion-icon name="home"></ion-icon>
+                </div>
+                <div class="item-info">
+                    <h5 class="no-mg item-text">Home</h5>
+                </div>
+            </div>
+            <a>
+                <div class="item-display mg">
+                    <div class="item-icon-nav">
+                        <ion-icon name="notifications"></ion-icon>
+                    </div>
+                    <div class="item-info">
+                        <h5 class="no-mg item-text">Notifications</h5>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="item-display mg">
+                    <div class="item-icon-nav">
+                        <ion-icon name="list"></ion-icon>
+                    </div>
+                    <div class="item-info">
+                        <h5 class="no-mg item-text">Jobs</h5>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="item-display mg">
+                    <div class="item-icon-nav">
+                        <ion-icon name="settings"></ion-icon>
+                    </div>
+                    <div class="item-info">
+                        <h5 class="no-mg item-text">Settings</h5>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="item-display logout-item mg">
+                    <div class="item-icon-nav">
+                        <ion-icon name="log-out"></ion-icon>
+                    </div>
+                    <div class="item-info">
+                        <h5 class="no-mg item-text">Log Out</h5>
+                    </div>
+                </div>
+            </a>
 
-<ion-content>
 
-</ion-content>
+        </div>
+    </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+    </ion-content>
+</div>
