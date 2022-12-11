@@ -34,7 +34,7 @@ class UserController extends Controller
 
             if($user->save()){
                 return response()->json([
-                    "resp"=> $user->id
+                    "resp"=> $user
                 ]);
             }
             return response()->json([
@@ -48,7 +48,7 @@ class UserController extends Controller
         if($user!=null){
             if(Hash::check($request->password, $user->password)){
                 return response()->json([
-                    "resp"=> $user->id
+                    "resp"=> $user
                 ]);
             }else{
                 return response()->json([
@@ -67,7 +67,7 @@ class UserController extends Controller
         if($user!=null){
             if(Hash::check($request->password, $user->password)){
                 return response()->json([
-                    "resp"=> $user->id
+                    "resp"=> $user
                 ]);
             }else{
                 return response()->json([
