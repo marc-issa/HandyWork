@@ -54,6 +54,16 @@ class WorkerController extends Controller
         
     }
 
+    function getAll(){
+        $worker = DB::table("users")
+                    ->join("workers", "user_id", "=", "users.id")
+                    ->select("users.*", "workers.hourly_rate")
+                    ->get();
+        return response()->json([
+            "resp"=>$worker
+        ]);
+    }
+
     function getWorkerByUsername($username){
         $worker = DB::table("users")
                     ->join("workers", "user_id", "=", "users.id")
