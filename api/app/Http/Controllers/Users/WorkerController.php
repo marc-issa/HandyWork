@@ -66,6 +66,19 @@ class WorkerController extends Controller
         ]);
     }
 
+    function getId(Request $request){
+        $worker = Worker::where("user_id", $request->user_id)->first();
+        if($worker!=null){
+            return response()->json([
+                "resp" =>$worker
+            ]);
+        }else{
+            return response()->json([
+                "resp" =>false
+            ]);
+        }
+    }
+
     function getWorkerByUsername($username){
         $worker = DB::table("users")
                     ->join("workers", "user_id", "=", "users.id")
