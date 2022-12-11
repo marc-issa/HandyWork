@@ -37,7 +37,27 @@ const routes: Routes = [
   },
   {
     path: 'clean',
-    loadChildren: () => import('./pages/categories/clean/clean.module').then( m => m.CleanPageModule)
+    loadChildren: () => import('./pages/categories/clean/clean.module').then(m => m.CleanPageModule)
+  },
+  {
+    path: 'plumber',
+    loadChildren: () => import('./pages/categories/plumber/plumber.module').then(m => m.PlumberPageModule)
+  },
+  {
+    path: 'painter',
+    loadChildren: () => import('./pages/categories/painter/painter.module').then(m => m.PainterPageModule)
+  },
+  {
+    path: 'electrician',
+    loadChildren: () => import('./pages/categories/electrician/electrician.module').then( m => m.ElectricianPageModule)
+  },
+  {
+    path: 'car',
+    loadChildren: () => import('./pages/categories/car/car.module').then( m => m.CarPageModule)
+  },
+  {
+    path: 'washing',
+    loadChildren: () => import('./pages/categories/washing/washing.module').then( m => m.WashingPageModule)
   },
 ];
 
