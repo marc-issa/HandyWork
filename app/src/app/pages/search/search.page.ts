@@ -39,7 +39,22 @@ export class SearchPage implements OnInit {
   }
 
   redirectToClean() {
-    console.log("Redirecting To cleaning");
+    this.router.navigate(["/clean"]);
+  }
+  redirectToPlumber() {
+    this.router.navigate(["/plumber"]);
+  }
+  redirectToPaint() {
+    this.router.navigate(["/painter"]);
+  }
+  redirectToElectric() {
+    this.router.navigate(["/electrician"]);
+  }
+  redirectToCar() {
+    this.router.navigate(["/car"]);
+  }
+  redirectToWashing() {
+    this.router.navigate(["/washing"]);
   }
 
 
