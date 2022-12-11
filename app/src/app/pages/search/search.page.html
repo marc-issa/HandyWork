@@ -1,9 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>search</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="mg">
+    <ion-searchbar show-cancel-button="focus" inputmode="text" animated="true" class="search-bar"
+      [(ngModel)]="searchTerm" (ionChange)="getResult()"></ion-searchbar>
+  </div>
+  <div *ngIf="searchTerm!=''">
+    <ion-list *ngFor="let worker of workers">
+      <ion-item>
+        <div class="container">
+          <ion-label class="username-text">{{ worker["username"] }}</ion-label>
+          <div class="item-info">
+            <ion-label class="address-badge">{{ worker["address"] }}</ion-label>
+            <ion-label class="hr-badge">${{ worker["hourly_rate"] }}.00</ion-label>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="catg-display" *ngIf="searchTerm==''">
+    <div class="catg-row">
+      <div class="catg-item" (click)="redirectToClean()">
+        <img src="../../../assets/icon/cleaner.png" class="catg-icon">
+        <h3 class="catg-text">Cleaning</h3>
+      </div>
+      <div class="catg-item">
+        <img src="../../../assets/icon/plumber.png" class="catg-icon">
+        <h3 class="catg-text">Plumbing</h3>
+      </div>
+    </div>
+    <div class="catg-row">
+      <div class="catg-item">
+        <img src="../../../assets/icon/paint-roller.png" class="catg-icon">
+        <h3 class="catg-text">Painting</h3>
+      </div>
+      <div class="catg-item">
+        <img src="../../../assets/icon/electrician.png" class="catg-icon">
+        <h3 class="catg-text">Electrician</h3>
+      </div>
+    </div>
+    <div class="catg-row">
+      <div class="catg-item">
+        <img src="../../../assets/icon/mechanic.png" class="catg-icon">
+        <h3 class="catg-text">Car Repair</h3>
+      </div>
+      <div class="catg-item">
+        <img src="../../../assets/icon/car-cleaning.png" class="catg-icon">
+        <h3 class="catg-text">Car Washing</h3>
+      </div>
+    </div>
+  </div>
+
 
 </ion-content>

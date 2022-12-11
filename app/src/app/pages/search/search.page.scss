@@ -1,0 +1,74 @@
+.mg {
+    margin-top: 20px;
+}
+
+.search-bar {
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.address-badge {
+    padding: 2px 10px;
+    background-color: rgb(44, 93, 79);
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.hr-badge {
+    margin-top: 3px;
+    padding: 2px 10px;
+    background-color: #E0EFEB;
+    text-align: center;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.catg-display {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.catg-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    height: 30%;
+}
+
+.catg-item {
+    background-color: #E0EFEB;
+    width: 47.5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7.5%;
+    border-radius: 10px;
+    color: rgb(44, 93, 79);
+}
+
+.catg-item:Hover {
+    background-color: #9FCEC1;
+}
+
+.catg-icon {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.catg-text {
+    font-size: 13px;
+    font-weight: 600;
+}

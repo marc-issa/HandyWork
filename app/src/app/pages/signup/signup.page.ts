@@ -25,11 +25,11 @@ export class SignupPage implements OnInit {
     let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (this.email.match(regex)) {
       let postData = {
-        "username": this.username,
-        "fname": this.fname,
-        "lname": this.lname,
-        "email": this.email,
-        "address": this.address,
+        "username": this.username.toLowerCase(),
+        "fname": this.fname.toLowerCase(),
+        "lname": this.lname.toLowerCase(),
+        "email": this.email.toLowerCase(),
+        "address": this.address.charAt(0).toUpperCase() + this.address.slice(1),
         "password": this.password
       }
       this.http.post("http://127.0.0.1:8000/api/v0.1/user/signup", postData)
@@ -42,7 +42,7 @@ export class SignupPage implements OnInit {
           } else if (resp == "email-exists") {
             this.resp_err = "Email already exists"
           } else {
-            this.router.navigate(["/tabs/home"], { state: { id: resp } })
+            this.router.navigate(["/tabs"], { state: { id: resp } })
           }
 
         }, error => {

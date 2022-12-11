@@ -21,8 +21,8 @@ export class LoginPage implements OnInit {
     let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (this.username_email.match(regex)) {
       let postData = {
-        "email": this.username_email,
-        "password": this.password
+        "email": this.username_email.toLowerCase(),
+        "password": this.password.toLowerCase()
       }
       this.http.post("http://127.0.0.1:8000/api/v0.1/user/loginEmail", postData)
         .subscribe(data => {
@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
           } else if (resp == "wrong-password") {
             this.resp_err = "Wrong password"
           } else {
-            this.router.navigate(["/home"], { state: { id: resp } })
+            this.router.navigate(["/tabs"], { state: { id: resp } })
           }
         }, error => {
           console.log(error);
