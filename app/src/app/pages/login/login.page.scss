@@ -4,12 +4,14 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     color: #21473D;
+    padding: 10%;
 }
 
 .header {
-    margin-top: 40px;
+    justify-self: center;
 }
 
 .signin-header {
@@ -62,7 +64,6 @@
 }
 
 .signup-sec {
-    margin-top: 170px;
     width: 100%;
     display: flex;
     justify-content: center;
