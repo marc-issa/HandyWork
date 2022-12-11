@@ -26,7 +26,11 @@ export class HomePage implements OnInit {
   }
 
   profileRedirect() {
-    console.log("Redirecting to profile page...");
+    this.router.navigate(["profile"])
+  }
+
+  settingsRedirect() {
+
   }
 
   redirectToClean() {

@@ -39,22 +39,22 @@ export class SearchPage implements OnInit {
   }
 
   redirectToClean() {
-    this.router.navigate(["/clean"]);
+    this.router.navigate(["/car"], { state: { "page": "Cleaners" } });
   }
   redirectToPlumber() {
-    this.router.navigate(["/plumber"]);
+    this.router.navigate(["/car"], { state: { "page": "Plumbers" } });
   }
   redirectToPaint() {
-    this.router.navigate(["/painter"]);
+    this.router.navigate(["/car"], { state: { "page": "Painters" } });
   }
   redirectToElectric() {
-    this.router.navigate(["/electrician"]);
+    this.router.navigate(["/car"], { state: { "page": "Electricians" } });
   }
   redirectToCar() {
-    this.router.navigate(["/car"]);
+    this.router.navigate(["/car"], { state: { "page": "Mechanics" } });
   }
   redirectToWashing() {
-    this.router.navigate(["/washing"]);
+    this.router.navigate(["/car"], { state: { "page": "Car Washing" } });
   }
 
 
