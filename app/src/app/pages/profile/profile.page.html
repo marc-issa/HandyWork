@@ -1,9 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end" (click)="editRedirect()" *ngIf="same">
+      Edit
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <div class="container">
+    <div class="item-display">
+      <div class="item-icon">
+        <img src="../../../assets/icon/profile.png">
+      </div>
+      <div class="name-username">
+        <h5 class="no-mg">{{user["first_name"]}} {{user["last_name"]}}</h5>
+        <h6 class="no-mg">@{{user["username"]}}</h6>
+      </div>
+    </div>
+    <div class="email-sec">
+      <h6 class="email">{{user["email"]}}</h6>
 
+    </div>
+    <div class="services" *ngIf="isWorker">
+      <h6 class="hr">Hourly Rate: ${{isWorker["hourly_rate"]}}.00</h6>
+      <h1>Services</h1>
+      <div class="service-row" *ngFor="let catg of catgs">
+        <div class="service-item">{{catg["categorie"]}}</div>
+      </div>
+    </div>
+  </div>
 </ion-content>

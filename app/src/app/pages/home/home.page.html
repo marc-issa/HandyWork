@@ -14,20 +14,12 @@
                         <img src="../../../assets/icon/profile.png">
                     </div>
                     <div class="item-info">
-                        <h5 class="no-mg">John John</h5>
-                        <h6 class="no-mg">john@gmail.com</h6>
+                        <h5 class="no-mg">{{user["first_name"]}} {{user["last_name"]}}</h5>
+                        <h6 class="no-mg">{{user["email"]}}</h6>
                     </div>
                 </div>
             </a>
-            <div class="current mg">
-                <div class="item-icon-nav">
-                    <ion-icon name="home"></ion-icon>
-                </div>
-                <div class="item-info">
-                    <h5 class="no-mg item-text">Home</h5>
-                </div>
-            </div>
-            <a (click)="settingsRedirect()">
+            <a (click)="settingsRedirect()" class="mg">
                 <div class="item-display mg">
                     <div class="item-icon-nav">
                         <ion-icon name="settings"></ion-icon>
@@ -153,3 +145,4 @@
             </div>
         </div>
     </div>
+</div>

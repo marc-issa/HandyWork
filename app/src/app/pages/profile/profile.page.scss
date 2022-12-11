@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-mg {
+    margin: 0;
+}
+
+.item-display {
+    display: flex;
+    padding: 15px;
+    color: #000000;
+}
+
+.item-icon {
+    max-width: 35px;
+    max-height: 35px;
+    margin-right: 5px;
+}
+
+.email-sec {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.services {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-row {
+    display: flex;
+}
+
+.service-item {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #F77D27;
+    color: white;
+    border-radius: 10px;
+}

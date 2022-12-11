@@ -26,7 +26,7 @@ export class HomePage implements OnInit {
   }
 
   profileRedirect() {
-    this.router.navigate(["profile"])
+    this.router.navigate(["profile"], { state: { "id": this.id } })
   }
 
   settingsRedirect() {
