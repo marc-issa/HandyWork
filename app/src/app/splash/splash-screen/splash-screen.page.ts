@@ -13,7 +13,11 @@ export class SplashScreenPage implements OnInit {
   ngOnInit() {
     let route = this.route
     setTimeout(function () {
-      route.navigate(["/intro1"]);
+      if (localStorage.getItem("id") != null) {
+        route.navigate(["/tabs"])
+      } else {
+        route.navigate(["/intro1"]);
+      }
     }, 3000);
   }
 

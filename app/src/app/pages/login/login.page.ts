@@ -33,7 +33,8 @@ export class LoginPage implements OnInit {
           } else if (resp == "wrong-password") {
             this.resp_err = "Wrong password"
           } else {
-            this.router.navigate(["/tabs"], { state: { id: resp } })
+            localStorage.setItem("user", resp)
+            this.router.navigate(["/tabs"])
           }
         }, error => {
           console.log(error);
@@ -53,7 +54,8 @@ export class LoginPage implements OnInit {
           } else if (resp == "wrong-password") {
             this.resp_err = "Wrong password"
           } else {
-            this.router.navigate(["/tabs"], { state: { id: resp } })
+            localStorage.setItem("id", resp["id"])
+            this.router.navigate(["/tabs"])
           }
         }, error => {
           console.log(error);

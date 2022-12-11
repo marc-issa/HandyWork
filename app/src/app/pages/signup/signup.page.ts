@@ -42,7 +42,8 @@ export class SignupPage implements OnInit {
           } else if (resp == "email-exists") {
             this.resp_err = "Email already exists"
           } else {
-            this.router.navigate(["/tabs"], { state: { id: resp } })
+            localStorage.setItem("user", resp)
+            this.router.navigate(["/tabs"])
           }
 
         }, error => {
