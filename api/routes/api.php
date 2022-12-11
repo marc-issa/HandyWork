@@ -11,6 +11,7 @@ use App\Http\Controllers\Users\WorkerController as UserWorkerController;
 
 Route::group(["prefix"=>"v0.1"], function(){
     Route::group(["prefix"=>"user"], function(){
+        Route::get("/{id}", [UserController::class, "getUser"]);
         Route::post("signup", [UserController::class, "signup"]);
         Route::post("login", [UserController::class, "login"]);
         Route::post("loginEmail", [UserController::class, "loginEmail"]);

@@ -81,18 +81,17 @@ class UserController extends Controller
         }
     }
 
-    function forgotPassword(Request $request){
-        $user = User::where("email", $request->email);
-        if($user->update(["password"=>bcrypt($request->password)])){
+    function getUser($id){
+        $user = User::where("id", $id)->first();
+        if($user!=null){
             return response()->json([
-                "resp"=> true
+                "resp"=> $user
             ]);
         }else{
             return response()->json([
                 "resp"=> false
             ]);
         }
-       
     }
 
     function editUsername(Request $request){
