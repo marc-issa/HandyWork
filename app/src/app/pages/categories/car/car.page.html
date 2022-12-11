@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>car</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{categorie}}</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+  <div class="mg">
+    <ion-searchbar show-cancel-button="focus" inputmode="text" animated="true" class="search-bar"
+      [(ngModel)]="searchTerm" (ionChange)="getResult()"></ion-searchbar>
+  </div>
+  <div *ngIf="searchTerm!=''">
+    <ion-list *ngFor="let worker of workers">
+      <ion-item>
+        <div class="container">
+          <ion-label class="username-text">{{ worker["username"] }}</ion-label>
+          <div class="item-info">
+            <ion-label class="address-badge">{{ worker["address"] }}</ion-label>
+            <ion-label class="hr-badge">${{ worker["hourly_rate"] }}.00</ion-label>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="searchTerm==''">
+    <ion-list *ngFor="let worker of all_workers">
+      <ion-item>
+        <div class="container">
+          <ion-label class="username-text">{{ worker["username"] }}</ion-label>
+          <div class="item-info">
+            <ion-label class="address-badge">{{ worker["address"] }}</ion-label>
+            <ion-label class="hr-badge">${{ worker["hourly_rate"] }}.00</ion-label>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
