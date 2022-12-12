@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jobs.page.scss'],
 })
 export class JobsPage implements OnInit {
+  user_id: any = '';
 
   constructor() { }
 
   ngOnInit() {
+    this.user_id = localStorage.getItem("id");
+
+
   }
 
 }

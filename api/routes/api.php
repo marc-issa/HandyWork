@@ -63,17 +63,8 @@ Route::group(["prefix"=>"v0.1"], function(){
         
         Route::group(["prefix"=>"get"], function(){
             Route::get("user/{user_id}", [JobController::class, "getAllForUser"]);
+            Route::get("worker/{user_id}", [JobController::class, "getAllForWorker"]);
             Route::get("job/{job_id}", [JobController::class, "getJobInfo"]);
         });
     });
-    
-    Route::group(["prefix"=>"rate"], function(){
-        Route::post("add", [RatingController::class, "addRating"]); 
-        Route::get("top", [RatingController::class, "getTop"]);
-        Route::get("{worker_id}", [RatingController::class, "getRating"]);
-        
-        
-    });
-    
-    
 });
