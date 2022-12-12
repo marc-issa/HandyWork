@@ -19,13 +19,13 @@
                     </div>
                 </div>
             </a>
-            <a (click)="settingsRedirect()" class="mg">
+            <a (click)="settingsRedirect()" class="mg" *ngIf="isWorker==false">
                 <div class="item-display mg">
                     <div class="item-icon-nav">
-                        <ion-icon name="settings"></ion-icon>
+                        <ion-icon name="body-outline"></ion-icon>
                     </div>
                     <div class="item-info">
-                        <h5 class="no-mg item-text">Settings</h5>
+                        <h5 class="no-mg item-text">Become a Worker</h5>
                     </div>
                 </div>
             </a>

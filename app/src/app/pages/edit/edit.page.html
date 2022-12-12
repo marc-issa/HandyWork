@@ -1,9 +1,159 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="profileRedirect()"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-color">Edit Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="editProfile()" shape="round">Save</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-color">{{user["username"]}}</ion-card-title>
+      <ion-card-subtitle>Username</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="text-color">New username: </ion-label>
+        <ion-input [(ngModel)]="username"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-color">{{user["first_name"]}} {{user["last_name"]}}</ion-card-title>
+      <ion-card-subtitle>First and Last Name</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="text-color">New first name: </ion-label>
+        <ion-input [(ngModel)]="fname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="text-color">New last name: </ion-label>
+        <ion-input [(ngModel)]="lname"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="isWorker!='false'">
+    <ion-card-header>
+      <ion-card-title class="text-color">${{isWorker}}.00</ion-card-title>
+      <ion-card-subtitle>Hourly Rate</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="text-color">New Hourly Rate: </ion-label>
+        <ion-input [(ngModel)]="hr"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="isWorker!='false'">
+    <ion-card-header>
+      <ion-card-title class="text-color">Categories</ion-card-title>
+      <ion-list *ngFor="let catg of catgs">
+        <ion-item>{{catg}} <ion-icon name="trash" slot="end" (click)="deleteCatg(catg)"></ion-icon></ion-item>
+
+      </ion-list>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-button id="open-modal">Add</ion-button>
+
+      <ion-modal #modal trigger="open-modal" [presentingElement]="presentElement">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Categories</ion-title>
+              <ion-buttons slot="start">
+                <ion-button (click)="modal.dismiss()">Close</ion-button>
+              </ion-buttons>
+              <ion-buttons slot="end">
+                <ion-button (click)="modal.dismiss()">Save</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+            <ion-list>
+              <ion-item *ngIf="all_catgs.includes('Cleaner')">
+                <ion-checkbox slot="start" [(ngModel)]="cleaner" (click)="saveCleaner()"></ion-checkbox>
+                <ion-label>Cleaner</ion-label>
+              </ion-item>
+              <ion-item *ngIf="all_catgs.includes('Plumber')">
+                <ion-checkbox slot="start" [(ngModel)]="plumber" (click)="savePlumber()"></ion-checkbox>
+                <ion-label>Plumber</ion-label>
+              </ion-item>
+              <ion-item *ngIf="all_catgs.includes('Painter')">
+                <ion-checkbox slot="start" [(ngModel)]="painter" (click)="savePainter()"></ion-checkbox>
+                <ion-label>Painter</ion-label>
+              </ion-item>
+              <ion-item *ngIf="all_catgs.includes('Mechanic')">
+                <ion-checkbox slot="start" [(ngModel)]="mechanic" (click)="saveMechanic()"></ion-checkbox>
+                <ion-label>Mechanic</ion-label>
+              </ion-item>
+              <ion-item *ngIf="all_catgs.includes('Electrician')">
+                <ion-checkbox slot="start" [(ngModel)]="electrician" (click)="saveElectrician()"></ion-checkbox>
+                <ion-label>Electrician</ion-label>
+              </ion-item>
+              <ion-item *ngIf="all_catgs.includes('Car Washing')">
+                <ion-checkbox slot="start" [(ngModel)]="car_washing" (click)="saveCarWashing()"></ion-checkbox>
+                <ion-label>Car Washing</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-color">{{user["email"]}}</ion-card-title>
+      <ion-card-subtitle>Email</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="text-color">New email: </ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-color">{{user["address"]}}</ion-card-title>
+      <ion-card-subtitle>Address</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="text-color">New address: </ion-label>
+        <ion-input [(ngModel)]="address"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-color">Password</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="text-color">New Password: </ion-label>
+        <ion-input [(ngModel)]="password"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

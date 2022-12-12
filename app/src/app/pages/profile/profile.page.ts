@@ -19,6 +19,9 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     let id = localStorage.getItem("id");
+    this.isWorker = localStorage.getItem("worker");
+
+    console.log(this.isWorker);
 
     let sent_id = this.router.getCurrentNavigation()?.extras.state;
     let tmp_id = JSON.parse(JSON.stringify(sent_id))["id"];
@@ -37,33 +40,25 @@ export class ProfilePage implements OnInit {
         this.user = user;
       });
 
-    //Check if the profile is a worker
-    let postData = {
-      "user_id": this.id,
+    if (this.isWorker != "false") {
+      let postData = {
+        "worker_id": this.id,
+      }
+      this.http.post(`http://127.0.0.1:8000/api/v0.1/worker/categorie/get`, postData)
+        .subscribe(data => {
+          let tmp_data = JSON.stringify(data);
+          let user = JSON.parse(tmp_data)["resp"];
+          this.catgs = user;
+        });
     }
-
-    this.http.post(`http://127.0.0.1:8000/api/v0.1/worker/get`, postData)
-      .subscribe(data => {
-        let tmp_data = JSON.stringify(data);
-        let user = JSON.parse(tmp_data)["resp"];
-        this.isWorker = user;
-        if (this.isWorker != false) {
-          let postData = {
-            "worker_id": this.id,
-          }
-          console.log(this.id);
-          this.http.post(`http://127.0.0.1:8000/api/v0.1/worker/categorie/get`, postData)
-            .subscribe(data => {
-              let tmp_data = JSON.stringify(data);
-              let user = JSON.parse(tmp_data)["resp"];
-              this.catgs = user;
-            });
-        }
-      });
   }
 
   editRedirect() {
-    console.log("Go to edit")
+    this.router.navigate(["/edit"])
+  }
+
+  homeRedirect() {
+    this.router.navigate(["/tabs"])
   }
 
 }

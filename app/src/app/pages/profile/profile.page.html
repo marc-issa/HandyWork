@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button (click)="homeRedirect()"></ion-back-button>
     </ion-buttons>
     <ion-title>Profile</ion-title>
     <ion-buttons slot="end" (click)="editRedirect()" *ngIf="same">
@@ -25,8 +25,8 @@
       <h6 class="email">{{user["email"]}}</h6>
 
     </div>
-    <div class="services" *ngIf="isWorker">
-      <h6 class="hr">Hourly Rate: ${{isWorker["hourly_rate"]}}.00</h6>
+    <div class="services" *ngIf="isWorker!='false'">
+      <h6 class="hr">Hourly Rate: ${{isWorker}}.00</h6>
       <h1>Services</h1>
       <div class="service-row" *ngFor="let catg of catgs">
         <div class="service-item">{{catg["categorie"]}}</div>
