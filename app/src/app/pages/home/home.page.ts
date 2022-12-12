@@ -50,19 +50,19 @@ export class HomePage implements OnInit {
   }
 
   redirectToClean() {
-    this.router.navigate(["/car"], { state: { "page": "Cleaners" } });
+    this.router.navigate(["/car"], { state: { "page": "Cleaner" } });
   }
   redirectToPlumber() {
-    this.router.navigate(["/car"], { state: { "page": "Plumbers" } });
+    this.router.navigate(["/car"], { state: { "page": "Plumber" } });
   }
   redirectToPaint() {
-    this.router.navigate(["/car"], { state: { "page": "Painters" } });
+    this.router.navigate(["/car"], { state: { "page": "Painter" } });
   }
   redirectToElectric() {
-    this.router.navigate(["/car"], { state: { "page": "Electricians" } });
+    this.router.navigate(["/car"], { state: { "page": "Electrician" } });
   }
   redirectToCar() {
-    this.router.navigate(["/car"], { state: { "page": "Mechanics" } });
+    this.router.navigate(["/car"], { state: { "page": "Mechanic" } });
   }
   redirectToWashing() {
     this.router.navigate(["/car"], { state: { "page": "Car Washing" } });

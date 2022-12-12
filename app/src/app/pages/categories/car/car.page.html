@@ -13,7 +13,7 @@
   </div>
   <div *ngIf="searchTerm!=''">
     <ion-list *ngFor="let worker of workers">
-      <ion-item>
+      <ion-item (click)="profileRedirect(worker)">
         <div class="container">
           <ion-label class="username-text">{{ worker["username"] }}</ion-label>
           <div class="item-info">
@@ -26,7 +26,7 @@
   </div>
   <div *ngIf="searchTerm==''">
     <ion-list *ngFor="let worker of all_workers">
-      <ion-item>
+      <ion-item (click)="profileRedirect(worker['id'])">
         <div class="container">
           <ion-label class="username-text">{{ worker["username"] }}</ion-label>
           <div class="item-info">

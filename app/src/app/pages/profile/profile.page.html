@@ -7,6 +7,9 @@
     <ion-buttons slot="end" (click)="editRedirect()" *ngIf="same">
       Edit
     </ion-buttons>
+    <ion-buttons slot="end" *ngIf="!same">
+      <ion-button id="open-modal" expand="block">Job</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -32,5 +35,33 @@
         <div class="service-item">{{catg["categorie"]}}</div>
       </div>
     </div>
+    <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Job</ion-title>
+            <ion-buttons slot="start">
+              <ion-button (click)="modal.dismiss()">Close</ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end">
+              <ion-button (click)="saveJob()">Save</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-item>
+            <ion-label position="floating">Job Subject</ion-label>
+            <ion-input placeholder="Enter text" [(ngModel)]="jobTitle"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Job Description</ion-label>
+            <ion-input placeholder="Enter text" [(ngModel)]="jobDescription"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-datetime [(ngModel)]="datentime"></ion-datetime>
+          </ion-item>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
   </div>
 </ion-content>

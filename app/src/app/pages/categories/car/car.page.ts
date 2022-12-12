@@ -20,14 +20,11 @@ export class CarPage implements OnInit {
 
     let catg = tmp_name.toLowerCase();
 
-    if (this.categorie != "Car Washing") {
-      catg = catg.slice(0, -1);
-    }
-
     this.http.get(`http://127.0.0.1:8000/api/v0.1/worker/find/getAll/${catg}`)
       .subscribe(data => {
         let tmp_data = JSON.stringify(data);
         this.all_workers = JSON.parse(tmp_data)["resp"];
+        console.log(this.all_workers);
       })
   }
 
@@ -36,8 +33,8 @@ export class CarPage implements OnInit {
     if (searchTerm != "") {
       this.http.get(`http://127.0.0.1:8000/api/v0.1/worker/find/username/${searchTerm}`)
         .subscribe(data => {
-          let tmp_data = JSON.stringify(data);
-          this.workers = JSON.parse(tmp_data)["resp"];
+          let tmp_data = JSON.parse(JSON.stringify(data))["resp"];
+          this.workers = tmp_data;
         })
       if (this.workers.length == 0) {
         searchTerm = this.searchTerm.charAt(0).toUpperCase() + this.searchTerm.slice(1)
@@ -50,5 +47,9 @@ export class CarPage implements OnInit {
     } else {
       this.workers = [];
     }
+  }
+
+  profileRedirect(param: any) {
+    this.router.navigate(["/profile"], { state: { "id": param } })
   }
 }
