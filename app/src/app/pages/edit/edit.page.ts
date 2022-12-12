@@ -33,7 +33,11 @@ export class EditPage implements OnInit {
   hr: any = '';
   type: any = '';
 
+  resp_username: any = true;
+  resp_email: any = true;
+
   value: any = '';
+  nav: any = false;
 
   presentElement: any = null;
 
@@ -88,7 +92,108 @@ export class EditPage implements OnInit {
       }
     }
 
-    this.router.navigate(["/profile"], { state: { "id": this.id } })
+    if (this.username != '') {
+      this.resp_username = true;
+      let postData = {
+        "id": this.id,
+        "username": this.username,
+      }
+      this.http.post(`http://127.0.0.1:8000/api/v0.1/user/edit/username`, postData)
+        .subscribe(data => {
+          let tmp_data = JSON.stringify(data);
+          let resp = JSON.parse(tmp_data)["resp"];
+          if (resp == "username-exists") {
+            this.resp_username = false;
+          }
+        })
+    }
+
+    if (this.fname != '') {
+      let postData = {
+        "id": this.id,
+        "fname": this.fname,
+      }
+      this.http.post(`http://127.0.0.1:8000/api/v0.1/user/edit/fname`, postData)
+        .subscribe(data => data)
+    }
+
+    if (this.lname != '') {
+      let postData = {
+        "id": this.id,
+        "lname": this.fname,
+      }
+      this.http.post(`http://127.0.0.1:8000/api/v0.1/user/edit/lname`, postData)
+        .subscribe(data => data)
+    }
+
+    if (this.email != '') {
+      this.resp_email = true;
+      let postData = {
+        "id": this.id,
+        "email": this.email,
+      }
+      this.http.post(`http://127.0.0.1:8000/api/v0.1/user/edit/email`, postData)
+        .subscribe(data => {
+          let tmp_data = JSON.stringify(data);
+          let resp = JSON.parse(tmp_data)["resp"];
+          if (resp == "email-exists") {
+            this.resp_email = false;
+          }
+        })
+    }
+
+    if (this.address != '') {
+      let postData = {
+        "id": this.id,
+        "address": this.address,
+      }
+      this.http.post(`http://127.0.0.1:8000/api/v0.1/user/edit/address`, postData)
+        .subscribe(data => data)
+    }
+
+    if (this.password != '') {
+      let postData = {
+        "id": this.id,
+        "password": this.password,
+      }
+      this.http.post(`http://127.0.0.1:8000/api/v0.1/user/edit/password`, postData)
+        .subscribe(data => data)
+    }
+
+    if (this.hr != '') {
+      let postData = {
+        "user_id": this.id,
+        "hr": this.hr,
+      }
+      this.http.post(`http://127.0.0.1:8000/api/v0.1/worker/edit/hr`, postData)
+        .subscribe(data => {
+          let tmp_data = JSON.stringify(data);
+          let resp = JSON.parse(tmp_data)["resp"];
+          if (resp) {
+            localStorage.setItem("worker", this.hr);
+          }
+        })
+    }
+
+    if (this.resp_username) {
+      if (this.resp_email) {
+        this.nav = true;
+      } else {
+        console.log("Error")
+      }
+    } else {
+      console.log("Error")
+    }
+
+    let nav = this.nav;
+    let router = this.router
+    let id = this.id
+
+    setTimeout(function () {
+      if (nav) {
+        router.navigate(["/profile"], { state: { "id": id } })
+      }
+    }, 2000)
   }
 
   deleteCatg(value: any) {

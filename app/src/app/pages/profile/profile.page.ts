@@ -21,8 +21,6 @@ export class ProfilePage implements OnInit {
     let id = localStorage.getItem("id");
     this.isWorker = localStorage.getItem("worker");
 
-    console.log(this.isWorker);
-
     let sent_id = this.router.getCurrentNavigation()?.extras.state;
     let tmp_id = JSON.parse(JSON.stringify(sent_id))["id"];
 

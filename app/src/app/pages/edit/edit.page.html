@@ -14,7 +14,8 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title class="text-color">{{user["username"]}}</ion-card-title>
-      <ion-card-subtitle>Username</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="resp_username">Username</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="!resp_username" class="error">Username Exists</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
@@ -118,7 +119,8 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title class="text-color">{{user["email"]}}</ion-card-title>
-      <ion-card-subtitle>Email</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="resp_username">Email</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="!resp_username" class="error">Email Exists</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
