@@ -41,7 +41,7 @@ class NotificationController extends Controller
         
         if($notification_empty!=null){
             return response()->json([
-                "resp"=>$notification
+                "resp"=>$notification->sortByDesc("created_at")
             ]);
         }else{
             return response()->json([
