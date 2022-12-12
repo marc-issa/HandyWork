@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::table("jobs", function($table){
             $table->string("description")->after("id");
-            $table->unsignedBigInteger("categorie_id")->after("description");
-            $table->foreign("categorie_id")->references("id")->on("categories");
         });
     }
 

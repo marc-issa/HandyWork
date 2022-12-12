@@ -11,7 +11,6 @@ class JobController extends Controller
         $job = new Job;
         $job->title = $request->title;
         $job->description = $request->description;
-        $job->categorie_id = $request->catg_id;
         $job->date_and_time = $request->dnt;
         $job->status = "pending";
         $job->user_id = $request->user_id;

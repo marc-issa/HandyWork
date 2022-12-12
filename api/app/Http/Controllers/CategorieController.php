@@ -25,7 +25,7 @@ class CategorieController extends Controller
     }
 
     function deleteCategorie(Request $request){
-        $catg = Categorie::where("id",$request->catg_id);
+        $catg = Categorie::where("worker_id",$request->worker_id)->where("categorie", $request->categorie);
         if($catg->delete()){
             return response()->json([
                 "resp"=>true
