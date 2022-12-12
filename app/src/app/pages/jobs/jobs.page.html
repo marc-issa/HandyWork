@@ -4,24 +4,35 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="jobs-display">
+  <div *ngFor="let job of worker_jobs">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Username</ion-card-title>
-        <ion-card-subtitle>Job Title</ion-card-subtitle>
-        <ion-card-subtitle>Date: </ion-card-subtitle>
-        <ion-card-subtitle>Time: </ion-card-subtitle>
+        <ion-card-title>{{job["title"]}}</ion-card-title>
+        <ion-card-subtitle>Date: {{job["date_and_time"]}}</ion-card-subtitle>
+        <ion-card-subtitle>{{job["status"]}}</ion-card-subtitle>
       </ion-card-header>
 
       <ion-card-content>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint mollitia eveniet, vel beatae velit
-        praesentium
-        laborum assumenda illo quae quis voluptas explicabo voluptates perferendis dignissimos veritatis, eius fuga
-        atque.
+        {{job["description"]}}
       </ion-card-content>
 
-      <ion-button shape="round" color="warning" class="button">Reject</ion-button>
-      <ion-button shape="round" class="button">Accept</ion-button>
+      <ion-button shape="round" color="warning" class="button" (click)="rejectJob(job['id'])"
+        *ngIf="job['status'] == 'pending'">Reject</ion-button>
+      <ion-button shape="round" class="button" (click)="acceptJob(job['id'])"
+        *ngIf="job['status'] == 'pending'">Accept</ion-button>
+    </ion-card>
+  </div>
+  <div *ngFor="let user_job of user_jobs">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{user_job["title"]}}</ion-card-title>
+        <ion-card-subtitle>Date: {{user_job["date_and_time"]}}</ion-card-subtitle>
+        <ion-card-subtitle>{{user_job["status"]}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{user_job["description"]}}
+      </ion-card-content>
     </ion-card>
   </div>
 </ion-content>

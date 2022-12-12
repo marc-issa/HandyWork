@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
             let tmp_data = JSON.stringify(data);
             let user = JSON.parse(tmp_data)["resp"];
             if (user == false) {
-              this.isWorker = false;
+              this.isWorker = 'false';
             } else {
               this.isWorker = user["hourly_rate"];
             }
@@ -66,6 +66,22 @@ export class HomePage implements OnInit {
   }
   redirectToWashing() {
     this.router.navigate(["/car"], { state: { "page": "Car Washing" } });
+  }
+
+  editRedirect() {
+    let postData = {
+      "user_id": this.id,
+      "hr": 0
+    }
+
+    this.http.post(`http://127.0.0.1:8000/api/v0.1/worker/add`, postData)
+      .subscribe(data => {
+        let tmp_data = JSON.stringify(data);
+        let worker = JSON.parse(tmp_data)["resp"];
+        localStorage.setItem("worker", "0");
+        this.isWorker = localStorage.getItem("worker");
+        this.router.navigate(["/edit"]);
+      })
   }
 
   logout() {
