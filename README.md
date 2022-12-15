@@ -17,7 +17,7 @@ anywhere, and securely store their information for future use. With this app, us
 <img align="left" width="160px" style="padding-right:10px;" src="imgs/signin.png">
 <img align="left" width="300" style="padding-right:10px;" src="imgs/home.png">
 
-</br>
+<hr></hr>
 
 #
 
