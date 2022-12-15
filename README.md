@@ -28,6 +28,8 @@ anywhere, and securely store their information for future use. With this app, us
 <br />
 <br />
 <br />
+<br />
+<br />
 
 ## Getting Started
 
