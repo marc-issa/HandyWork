@@ -13,9 +13,9 @@ anywhere, and securely store their information for future use. With this app, us
 #
 
 ## Screenshots
-<img align="left" width="400px" style="padding-right:10px;" src="imgs/notif-jobs.png">
-<img align="left" width="210px" style="padding-right:10px;" src="imgs/signin.png">
-<img align="left" width="400" style="padding-right:10px;" src="imgs/home.png">
+<img align="left" width="300px" style="padding-right:10px;" src="imgs/notif-jobs.png">
+<img align="left" width="160px" style="padding-right:10px;" src="imgs/signin.png">
+<img align="left" width="300" style="padding-right:10px;" src="imgs/home.png">
 
 </br>
 
