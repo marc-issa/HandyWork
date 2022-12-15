@@ -77,6 +77,7 @@ export class ProfilePage implements OnInit {
     let postData = {
       "worker_id": this.worker_id,
       "user_id": this.user_id,
+      "status": "pending",
       "dnt": datentime,
       "description": this.jobDescription,
       "title": this.jobTitle
