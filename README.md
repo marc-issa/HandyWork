@@ -7,6 +7,7 @@ anywhere, and securely store their information for future use. With this app, us
 <img align="left" alt="JavaScript" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" />
 <img align="left" alt="Ionic" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
 <img align="left" alt="Laravel" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg" />
-<br>
+</br>
+
 ## Screenshots
 <img align="left" alt="Laravel" width="150px" style="padding-right:10px;" src="imgs/notif-jobs">
