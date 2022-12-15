@@ -18,6 +18,10 @@ anywhere, and securely store their information for future use. With this app, us
 <img align="left" width="300" style="padding-right:10px;" src="imgs/home.png">
 
 <br>
+<br>
+<br>
+<br>
+<br>
 
 ## Getting Started
 
