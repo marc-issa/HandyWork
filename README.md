@@ -9,6 +9,9 @@ anywhere, and securely store their information for future use. With this app, us
 <img align="left" alt="Laravel" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg" />
 <img align="left" alt="angular" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain-wordmark.svg" />
 </br>
+<br>
+<br>
+<br>
 
 
 ## Getting Started
