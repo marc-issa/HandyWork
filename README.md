@@ -4,7 +4,14 @@ The app also has a powerful search engine to help users quickly find the sevice 
 anywhere, and securely store their information for future use. With this app, users can make sure their lives become easier and on track.
 
 ## Stacks
-<img align="left" alt="JavaScript" width="45px" style="padding-right:10px;" src=src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" />
+<img align="left" alt="TypeScript" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" />
 <img align="left" alt="Ionic" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
 <img align="left" alt="Laravel" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg" />
-<iimg align="left" alt="Laravel" width="150px" style="padding-right:10px; src="/imgs/notif-jobs
+<img align="left" alt="angular" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain-wordmark.svg" />
+</br>
+
+#
+
+## Screenshots
+<img align="left" width="400px" style="padding-right:10px;" src="imgs/notif-jobs.png">
+<img align="left" width="210px" style="padding-right:10px;" src="imgs/signin.png">
