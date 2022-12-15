@@ -18,6 +18,14 @@ anywhere, and securely store their information for future use. With this app, us
 <img align="left" width="330" style="padding-right:10px;" src="imgs/home.png">
 
 <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 ## Getting Started
 
@@ -31,7 +39,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Setting up the website
 
-- Download an set up XAMPP on your pc.
+- Download and set up XAMPP on your pc.
 - Open mysql from XAMPP and create a database called `handyworkdb`
 - Open your terminal, navigate to api folder and run `php artisan migrate`
 - Open `cmd` navigate to app and run `ionic serve --lab` or `ionic serve`
