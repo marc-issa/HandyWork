@@ -12,51 +12,6 @@ anywhere, and securely store their information for future use. With this app, us
 
 #
 
-## Screenshots
-<img align="left" width="300px" style="padding-right:10px;" src="imgs/notif-jobs.png">
-<img align="left" width="158px" style="padding-right:10px;" src="imgs/signin.png">
-<img align="left" width="330" style="padding-right:10px;" src="imgs/home.png">
-
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
 
 ## Getting Started
 
@@ -74,3 +29,9 @@ These instructions will get you a copy of the project up and running on your loc
 - Open mysql from XAMPP and create a database called `handyworkdb`
 - Open your terminal, navigate to api folder and run `php artisan migrate`
 - Open `cmd` navigate to app and run `ionic serve --lab` or `ionic serve`
+
+## Screenshots
+<img align="left" width="300px" style="padding-right:10px;" src="imgs/notif-jobs.png">
+<img align="left" width="158px" style="padding-right:10px;" src="imgs/signin.png">
+<img align="left" width="330" style="padding-right:10px;" src="imgs/home.png">
+
