@@ -15,21 +15,7 @@ anywhere, and securely store their information for future use. With this app, us
 ## Screenshots
 <img align="left" width="300px" style="padding-right:10px;" src="imgs/notif-jobs.png">
 <img align="left" width="158px" style="padding-right:10px;" src="imgs/signin.png">
-<img align="left" width="330" style="padding-right:10px;" src="imgs/home.png">
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+<img align="left" width="330" style="padding-right:10px;" src="imgs/home.png">_____________________________________________________________________
 
 ## Getting Started
 
