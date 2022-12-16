@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 - laravel
 - XAMPP
 
-### Setting up the website
+### Setting up the App
 
 - Download and set up XAMPP on your pc.
 - Open mysql from XAMPP and create a database called `handyworkdb`
